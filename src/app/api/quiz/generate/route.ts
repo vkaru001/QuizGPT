@@ -13,7 +13,7 @@ export async function POST(req:NextRequest){
     const document = body.get("pdf");
     try{
         const pdfLoader = new PDFLoader(document as Blob,{
-            parsedItemSeparator: " "
+            parsedItemSeparator: " ",
         });
         const docs = await pdfLoader.load();
         const selectedDocuments = docs.filter((doc) => doc.pageContent !== undefined);
@@ -84,8 +84,7 @@ export async function POST(req:NextRequest){
 
         const {quizId} = await saveQuiz(result.quiz);
 
-        return NextResponse.json({ 
-            message: "created successfully"}, 
+        return NextResponse.json({ quizId }, 
             {status:200}
         );
     }

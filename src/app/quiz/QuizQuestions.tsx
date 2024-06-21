@@ -90,7 +90,7 @@ export default function QuizQuestions(props: Props) {
         ) }
       </main>
       <footer className="footer pb-6 x-6 relative mb-0">
-        <ResultCard isCorrect={isCorrect} correctAnswer={questions[currentQuestion].answers.find(answer => answer.isCorrect === true)?.answerText || "" } />
+        <ResultCard isCorrect={isCorrect} correctAnswer={questions[currentQuestion].answers.find(answer => answer.isCorrect === true)?. answerText || "" } />
         {/* <p>{isCorrect ? 'Correct': 'Incorrect'}</p> */}
         <Button variant="neo" size="lg" onClick={handleNext}>{!started ? 'Start' : (currentQuestion === questions.length -1) ? 'Submit' : 'Next'}</Button>
       </footer>
